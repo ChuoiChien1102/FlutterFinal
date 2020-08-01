@@ -27,7 +27,7 @@ class MyAppBar extends StatelessWidget {
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
           ),
-          buildIcon(Icons.search),
+          // buildIcon(Icons.search),
         ],
       ),
     );

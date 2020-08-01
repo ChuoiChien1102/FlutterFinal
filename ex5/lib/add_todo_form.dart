@@ -108,7 +108,8 @@ class AddTodoFormState extends State<AddTodoForm>
         ),
       ),
       onSaved: (String text) {
-        _formData['text'] = text;
+        var newtext = text.replaceAll(' ', ''); 
+        _formData['text'] = newtext;
       },
     );
   }
