@@ -56,16 +56,54 @@ class TodoTile extends StatelessWidget {
     );
   }
 
+showAlertDialog(BuildContext context, Todo todo) {
+
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Huỷ"),
+    onPressed:  () {
+      Navigator.of(context).pop();
+    },
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Đồng ý"),
+    onPressed:  () {
+        deleteTodo(todo);
+        Navigator.of(context).pop();
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Thông báo"),
+    content: Text("Bạn có muốn xoá task không?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: Key(todo.id),
-      onDismissed: (DismissDirection direction) {
+      confirmDismiss: (direction) async {
         if (direction == DismissDirection.endToStart) {
-          deleteTodo(todo);
+          showAlertDialog(context, todo);
+          return false;
         } else if (direction == DismissDirection.startToEnd) {
           updateTodo(todo.id, todo.copyWith(completed: true));
         }
+        return true;
       },
       background: _buildDismmissableBackground(todo.category.color),
       child: Row(
