@@ -53,7 +53,13 @@ class TodosPageState extends State<TodosPage>
               color: widget.category.color,
               width: double.infinity,
               height: 85.0,
-              child: Center(),
+              child: Center(
+                 child: Text(
+                  widget.category.name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
             ),
           ),
           TabBar(
