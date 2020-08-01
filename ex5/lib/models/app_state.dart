@@ -25,18 +25,7 @@ class AppState {
       // todos: [],
       todos: List.unmodifiable(
         <Todo>[
-          Todo(
-            text: 'Welcome.... ',
-            category: Category(name: 'welcome', color: Colors.green),
-            date: DateTime.now(),
-            time: TimeOfDay.now(),
-          ),
-          Todo(
-            text: 'Start taking down todos',
-            category: Category(name: 'welcome', color: Colors.red),
-            date: DateTime.now(),
-            time: TimeOfDay.now(),
-          ),
+          
         ],
       ),
       categories: Categories.initial().categories,
