@@ -53,12 +53,32 @@ class TodosPageState extends State<TodosPage>
               color: widget.category.color,
               width: double.infinity,
               height: 85.0,
-              child: Center(
-                 child: Text(
-                  widget.category.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new SizedBox(
+                      width: 30,
+                      child: new IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      )),
+
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      widget.category.name,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white),
+                    ),
+                  ),
+
+                  Container(width: 30)
+                ],
               ),
             ),
           ),
