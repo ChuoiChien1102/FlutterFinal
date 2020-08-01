@@ -92,6 +92,43 @@ showAlertDialog(BuildContext context, Todo todo) {
   );
 }
 
+showAlertUpdateDialog(BuildContext context, Todo todo, bool newVal) {
+
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Huỷ"),
+    onPressed:  () {
+      updateTodo(todo.id, todo.copyWith(completed: !newVal));
+      Navigator.of(context).pop();
+    },
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Đồng ý"),
+    onPressed:  () {
+        updateTodo(todo.id, todo.copyWith(completed: newVal));
+        Navigator.of(context).pop();
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Thông báo"),
+    content: Text("Bạn có muốn update task không?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -114,7 +151,12 @@ showAlertDialog(BuildContext context, Todo todo) {
               selected: todo.completed,
               color: todo.category.color,
               onChange: (newVal) {
-                updateTodo(todo.id, todo.copyWith(completed: newVal));
+                if(newVal == false) {
+                    showAlertUpdateDialog(context, todo, newVal);
+                } else {
+                  updateTodo(todo.id, todo.copyWith(completed: newVal));
+                }
+                
               },
             ),
           ),
