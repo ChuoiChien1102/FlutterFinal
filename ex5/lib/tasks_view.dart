@@ -95,10 +95,10 @@ class _MyTabBar extends StatelessWidget {
     return TabBar(
       indicator: UnderlineTabIndicator(
         borderSide: const BorderSide(
-          width: 5.0,
+          width: 2.0,
           color: const Color.fromRGBO(86, 83, 195, 1.0),
         ),
-        insets: const EdgeInsets.only(right: 100.0),
+        insets: const EdgeInsets.only(right: 20.0),
       ),
       controller: _tabController,
       tabs: _tabs.toList(),
