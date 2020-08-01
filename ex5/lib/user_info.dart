@@ -39,9 +39,9 @@ class UserInfo extends StatelessWidget {
                             style: DefaultTextStyle.of(context).style,
                             children: <TextSpan>[
                               TextSpan(
-                                text: 'Loook like feel good.\n',
+                                text: 'Today is a goodday.\n',
                               ),
-                              TextSpan(text: 'You have $total tasks to do.'),
+                              // TextSpan(text: 'You have $total tasks to do.'),
                             ],
                           ),
                         ),

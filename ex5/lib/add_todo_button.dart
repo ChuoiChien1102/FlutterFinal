@@ -78,6 +78,12 @@ class _AddTodoButtonState extends State<AddTodoButton>
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
+          borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(40.0),
+                topRight: const Radius.circular(40.0),
+                bottomLeft: const Radius.circular(40.0),
+                bottomRight: const Radius.circular(40.0)
+              ),
           gradient: LinearGradient(
             colors: <Color>[
               Color.fromRGBO(111, 94, 230, 1.0),
